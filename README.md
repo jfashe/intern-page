@@ -1,6 +1,6 @@
 # Academic & Professional Portfolio
 
-A clean, responsive portfolio page built to embed directly into a business website without breaking the host site's design.
+A clean, responsive portfolio page built to embed directly into my business website without breaking the host site's design.
 
 ## 🌐 Live Site
 The portfolio is live at:  
