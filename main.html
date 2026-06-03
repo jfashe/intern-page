@@ -12,7 +12,7 @@
     ================================================================
      EMBED-SAFE PORTFOLIO — Joshua O. Fashe
      All styles are scoped to #jof-portfolio to prevent conflicts
-     with Pixieset or any host CMS CSS.
+     with Pixieset or any host CMS CMS.
      Nav is sticky (not fixed) — no clash with Pixieset's own nav.
      No min-height:100vh on hero — works inside iframes/embeds.
     ================================================================
@@ -222,6 +222,41 @@
       display: block;
       width: 22px; height: 1.5px;
       background: var(--text-hi);
+    }
+
+    /* ── NAV INFO STRIP ── */
+    #jof-portfolio .nav-info-strip {
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border);
+      padding: 10px 0;
+      width: 100%;
+    }
+    #jof-portfolio .info-strip-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    #jof-portfolio .info-contact {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--ff-body);
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: var(--text-mid);
+    }
+    #jof-portfolio .info-divider {
+      color: var(--text-lo);
+      font-weight: 300;
+    }
+    #jof-portfolio .info-availability {
+      font-family: var(--ff-body);
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: var(--text-hi);
+      letter-spacing: 0.01em;
     }
 
     /* ── Mobile nav drawer ── */
@@ -957,13 +992,34 @@
       #jof-portfolio .edu-cards       { flex-direction: column; }
       #jof-portfolio .hero-stat-badge { bottom: -12px; left: -10px; }
     }
+
+    /* Responsive Adjustments for Mobile Nav Strip */
+    @media (max-width: 768px) {
+      #jof-portfolio .info-strip-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+      #jof-portfolio .info-contact {
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      #jof-portfolio .info-divider {
+        display: none;
+      }
+      #jof-portfolio .info-item {
+        background: var(--bg-card);
+        padding: 2px 8px;
+        border-radius: 4px;
+        border: 1px solid var(--border);
+      }
+    }
   </style>
 </head>
 <body>
 
 <div id="jof-portfolio">
 
-  <!-- Mobile nav drawer -->
   <div class="mobile-nav" id="jofMobileNav">
     <button class="mobile-nav-close" id="jofMobileClose">&#x2715;</button>
     <a href="#jof-about"      onclick="jofCloseMobile()">About</a>
@@ -973,11 +1029,11 @@
     <a href="#jof-contact"    onclick="jofCloseMobile()">Contact</a>
   </div>
 
-  <!-- NAVBAR -->
   <nav>
     <div class="container nav-inner">
       <a href="#jof-portfolio" class="nav-logo">BEHIND THE<span> BUSINESS</span></a>
       <ul class="nav-links">
+        <li><a href="https://mogulfilmz.com/">Home</a></li>
         <li><a href="#jof-about">About</a></li>
         <li><a href="#jof-projects">Projects</a></li>
         <li><a href="#jof-experience">Experience</a></li>
@@ -989,9 +1045,21 @@
         <span></span><span></span><span></span>
       </button>
     </div>
+
+    <div class="nav-info-strip">
+      <div class="container info-strip-inner">
+        <div class="info-contact">
+          <span class="info-item">jfashe@uh.edu</span>
+          <span class="info-divider">|</span>
+          <span class="info-item">240-975-0486</span>
+          <span class="info-divider">|</span>
+          <span class="info-item">Bowie, TX</span>
+        </div>
+        <p class="info-availability">Available for work May 2026 - November 2026. Open for both internship and co-ops.</p>
+      </div>
+    </div>
   </nav>
 
-  <!-- HERO -->
   <section id="jof-hero">
     <div class="container">
       <div class="hero-grid">
@@ -1036,7 +1104,6 @@
     </div>
   </section>
 
-  <!-- ABOUT -->
   <section id="jof-about">
     <div class="container">
       <div class="about-grid">
@@ -1063,7 +1130,6 @@
     </div>
   </section>
 
-  <!-- PROJECTS -->
   <section id="jof-projects">
     <div class="container">
       <div class="projects-header">
@@ -1147,7 +1213,6 @@
     </div>
   </section>
 
-  <!-- EXPERIENCE -->
   <section id="jof-experience">
     <div class="container">
       <div class="reveal">
@@ -1185,7 +1250,6 @@
     </div>
   </section>
 
-  <!-- EDUCATION -->
   <div class="education-strip">
     <div class="container">
       <div class="section-label reveal">Education &amp; Certifications</div>
@@ -1214,7 +1278,6 @@
     </div>
   </div>
 
-  <!-- SKILLS -->
   <section id="jof-skills">
     <div class="container">
       <div class="reveal">
@@ -1250,7 +1313,6 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
   <section id="jof-contact">
     <div class="container">
       <div class="contact-grid">
@@ -1306,7 +1368,6 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <div class="container footer-inner">
       <div class="footer-brand">Mogul<span>Filmz</span> &middot; Joshua O. Fashe</div>
@@ -1319,9 +1380,7 @@
     </div>
   </footer>
 
-</div><!-- /#jof-portfolio -->
-
-<script>
+</div><script>
 (function() {
   "use strict";
 
