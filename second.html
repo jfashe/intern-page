@@ -25,9 +25,45 @@
       background: #0a0a0b !important;
       width: 100% !important;
       overflow-x: hidden !important;
+
+    /* ==========================================
+       PRECISION FIX — Collapse Top & Bottom Gaps
+       ========================================== */
+    div[id^="block-container-"] {
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+      padding-bottom: 0 !important;
+    }
+    .fb-block-padding-wrap, 
+    .fb-block-subpadding-wrap,
+    .fb-block-wrap,
+    .fb-block {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+      margin-bottom: 0 !important;
+      --padding-top-scale: 0 !important;
+      --padding-bottom-scale: 0 !important;
+    }
+    #jof-portfolio {
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+    body.page-without-header {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+    /* Hide the trailing empty system buttons Pixieset injects below custom code blocks */
+    .block-button, #block-container-mbAWQP {
+      display: none !important;
+      height: 0 !important;
+      padding: 0 !important;
+    }
     }
 
     /* Scoped wrapper — all vars and resets live here */
+    
     #jof-portfolio {
       --bg-deep:       #0a0a0b;
       --bg-surface:    #111114;
@@ -937,10 +973,10 @@
     <a href="#jof-contact"    onclick="jofCloseMobile()">Contact</a>
   </div>
 
-  <!-- NAVBAR, JF AREA-->
+  <!-- NAVBAR -->
   <nav>
     <div class="container nav-inner">
-      <a href="#jof-portfolio" class="nav-logo">BEHIND THE<span> BUSINESS</span></a>
+      <a href="#jof-portfolio" class="nav-logo">J<span>F</span></a>
       <ul class="nav-links">
         <li><a href="#jof-about">About</a></li>
         <li><a href="#jof-projects">Projects</a></li>
