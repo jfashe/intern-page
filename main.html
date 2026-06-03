@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Joshua O. Fashe — ML Engineer & Founder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <style>
+    /*
+    ================================================================
+     EMBED-SAFE PORTFOLIO — Joshua O. Fashe
+     All styles are scoped to #jof-portfolio to prevent conflicts
+     with Pixieset or any host CMS CSS.
+     Nav is sticky (not fixed) — no clash with Pixieset's own nav.
+     No min-height:100vh on hero — works inside iframes/embeds.
+    ================================================================
+    */
+
+    /* Force host page to be dark and not fight the embed */
+    html, body {
+      margin: 0 !important;
+      padding: 0 !important;
+      background: #0a0a0b !important;
+      width: 100% !important;
+      overflow-x: hidden !important;
+    }
+
+    /* Scoped wrapper — all vars and resets live here */
+    #jof-portfolio {
+      --bg-deep:       #0a0a0b;
+      --bg-surface:    #111114;
+      --bg-card:       #18181d;
+      --border:        rgba(255,255,255,0.07);
+      --border-accent: rgba(212,175,55,0.35);
+      --gold:          #d4af37;
+      --gold-glow:     rgba(212,175,55,0.08);
+      --text-hi:       #f0ede8;
+      --text-mid:      #8a8794;
+      --text-lo:       #4e4b58;
+      --ff-display:    'Syne', sans-serif;
+      --ff-body:       'DM Sans', sans-serif;
+      --r-sm:          6px;
+      --r-md:          12px;
+      --r-lg:          20px;
+      --ease:          0.3s cubic-bezier(0.4,0,0.2,1);
+
+      all: initial;
+      display: block;
+      box-sizing: border-box;
+      background: #0a0a0b !important;
+      color: #f0ede8;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      font-weight: 400;
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    #jof-portfolio *, #jof-portfolio *::before, #jof-portfolio *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    #jof-portfolio a  { color: inherit; text-decoration: none; }
+    #jof-portfolio img { display: block; max-width: 100%; }
+    #jof-portfolio button { cursor: pointer; }
+    #jof-portfolio ul { list-style: none; }
+
+    /* Grain texture overlay */
+    #jof-portfolio::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9997;
+      opacity: 0.3;
+    }
+
+    /* ── Layout ── */
+    #jof-portfolio .container {
+      width: min(1200px, 94%);
+      margin: 0 auto;
+    }
+
+    #jof-portfolio section {
+      display: block;
+      width: 100%;
+      padding: 96px 0;
+    }
+
+    #jof-portfolio .section-label {
+      font-family: var(--ff-display);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    #jof-portfolio .section-label::before {
+      content: '';
+      display: block;
+      width: 26px; height: 1px;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+    #jof-portfolio .section-title {
+      font-family: var(--ff-display);
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      color: var(--text-hi);
+    }
+
+    /* ── NAVBAR (sticky, not fixed) ── */
+    #jof-portfolio nav {
+      position: sticky;
+      top: 0;
+      z-index: 500;
+      width: 100%;
+      background: rgba(10,10,11,0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    #jof-portfolio .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 62px;
+    }
+    #jof-portfolio .nav-logo {
+      font-family: var(--ff-display);
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text-hi);
+    }
+    #jof-portfolio .nav-logo span { color: var(--gold); }
+    #jof-portfolio .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+    #jof-portfolio .nav-links a {
+      font-size: 0.76rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      transition: color var(--ease);
+    }
+    #jof-portfolio .nav-links a:hover { color: var(--text-hi); }
+    #jof-portfolio .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      font-family: var(--ff-display);
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #0a0a0b;
+      background: var(--gold);
+      padding: 9px 20px;
+      border-radius: 100px;
+      transition: opacity var(--ease), transform var(--ease);
+    }
+    #jof-portfolio .nav-cta:hover { opacity: 0.85; transform: translateY(-1px); }
+    #jof-portfolio .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    #jof-portfolio .nav-hamburger span {
+      display: block;
+      width: 22px; height: 1.5px;
+      background: var(--text-hi);
+    }
+
+    /* ── Mobile nav drawer ── */
+    #jof-portfolio .mobile-nav {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(10,10,11,0.97);
+      backdrop-filter: blur(20px);
+      z-index: 9000;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 36px;
+    }
+    #jof-portfolio .mobile-nav.open { display: flex; }
+    #jof-portfolio .mobile-nav a {
+      font-family: var(--ff-display);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--text-hi);
+      letter-spacing: -0.03em;
+      transition: color var(--ease);
+    }
+    #jof-portfolio .mobile-nav a:hover { color: var(--gold); }
+    #jof-portfolio .mobile-nav-close {
+      position: absolute;
+      top: 20px; right: 20px;
+      background: none;
+      border: none;
+      color: var(--text-mid);
+      font-size: 1.5rem;
+      cursor: pointer;
+      font-family: var(--ff-body);
+    }
+
+    /* ── HERO (padding-based, no 100vh) ── */
+    #jof-portfolio #jof-hero {
+      background: var(--bg-deep);
+      padding: 90px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    #jof-portfolio #jof-hero::after {
+      content: '';
+      position: absolute;
+      top: -30%; left: -10%;
+      width: 70%; height: 120%;
+      background: radial-gradient(ellipse at 30% 40%, rgba(212,175,55,0.055) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    #jof-portfolio .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 350px;
+      gap: 68px;
+      align-items: center;
+    }
+    #jof-portfolio .availability {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.74rem;
+      font-weight: 500;
+      color: #4ade80;
+      background: rgba(74,222,128,0.08);
+      border: 1px solid rgba(74,222,128,0.22);
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+      font-family: var(--ff-body);
+      opacity: 0;
+      animation: jofUp 0.8s 0.1s forwards;
+    }
+    #jof-portfolio .availability-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #4ade80;
+      flex-shrink: 0;
+      animation: jofPulse 2s ease infinite;
+    }
+    #jof-portfolio .hero-eyebrow {
+      font-family: var(--ff-display);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      opacity: 0;
+      animation: jofUp 0.8s 0.25s forwards;
+    }
+    #jof-portfolio .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 24px; height: 1px;
+      background: var(--gold);
+    }
+    #jof-portfolio .hero-name {
+      font-family: var(--ff-display);
+      font-size: clamp(3rem, 6.5vw, 5.5rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 0.96;
+      color: var(--text-hi);
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: jofUp 0.9s 0.4s forwards;
+    }
+    #jof-portfolio .hero-name .line2 {
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(240,237,232,0.28);
+    }
+    #jof-portfolio .hero-sub {
+      font-size: clamp(0.92rem, 1.7vw, 1.05rem);
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.78;
+      max-width: 480px;
+      margin-bottom: 40px;
+      font-family: var(--ff-body);
+      opacity: 0;
+      animation: jofUp 0.9s 0.55s forwards;
+    }
+    #jof-portfolio .hero-sub strong { color: var(--text-hi); font-weight: 500; }
+    #jof-portfolio .hero-actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 13px;
+      opacity: 0;
+      animation: jofUp 0.9s 0.7s forwards;
+    }
+    #jof-portfolio .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      font-family: var(--ff-display);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #0a0a0b;
+      background: var(--gold);
+      padding: 14px 28px;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      transition: transform var(--ease), box-shadow var(--ease);
+    }
+    #jof-portfolio .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 34px rgba(212,175,55,0.28);
+    }
+    #jof-portfolio .hero-icon-links { display: flex; gap: 9px; }
+    #jof-portfolio .icon-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px; height: 44px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      color: var(--text-mid);
+      transition: border-color var(--ease), color var(--ease), background var(--ease);
+    }
+    #jof-portfolio .icon-link:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: var(--gold-glow);
+    }
+    #jof-portfolio .icon-link svg { width: 16px; height: 16px; }
+    #jof-portfolio .hero-visual {
+      position: relative;
+      opacity: 0;
+      animation: jofLeft 1s 0.5s forwards;
+    }
+    #jof-portfolio .hero-img-frame {
+      position: relative;
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      border: 1px solid var(--border);
+    }
+    #jof-portfolio .hero-img-frame img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: grayscale(15%);
+    }
+    #jof-portfolio .hero-img-frame::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,10,11,0.65) 0%, transparent 50%);
+    }
+    #jof-portfolio .hero-stat-badge {
+      position: absolute;
+      bottom: -14px; left: -14px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-accent);
+      border-radius: var(--r-md);
+      padding: 14px 18px;
+      z-index: 2;
+      min-width: 165px;
+    }
+    #jof-portfolio .stat-num {
+      font-family: var(--ff-display);
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--gold);
+      line-height: 1;
+    }
+    #jof-portfolio .stat-label {
+      font-size: 0.7rem;
+      color: var(--text-mid);
+      margin-top: 4px;
+      font-family: var(--ff-body);
+    }
+
+    /* ── ABOUT ── */
+    #jof-portfolio #jof-about { background: var(--bg-surface); }
+    #jof-portfolio .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 68px;
+      align-items: start;
+    }
+    #jof-portfolio .about-text p {
+      font-size: 0.93rem;
+      color: var(--text-mid);
+      margin-top: 20px;
+      line-height: 1.85;
+      font-family: var(--ff-body);
+    }
+    #jof-portfolio .about-text p strong { color: var(--text-hi); font-weight: 500; }
+    #jof-portfolio .about-duality { display: flex; flex-direction: column; gap: 20px; }
+    #jof-portfolio .duality-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 26px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color var(--ease), transform var(--ease);
+    }
+    #jof-portfolio .duality-card:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-4px);
+    }
+    #jof-portfolio .duality-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+    }
+    #jof-portfolio .duality-card-icon { font-size: 1.5rem; margin-bottom: 10px; }
+    #jof-portfolio .duality-card h3 {
+      font-family: var(--ff-display);
+      font-size: 0.97rem;
+      font-weight: 700;
+      color: var(--text-hi);
+      margin-bottom: 9px;
+    }
+    #jof-portfolio .duality-card p {
+      font-size: 0.86rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+      font-family: var(--ff-body);
+    }
+
+    /* ── PROJECTS ── */
+    #jof-portfolio #jof-projects { background: var(--bg-deep); }
+    #jof-portfolio .projects-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    #jof-portfolio .filter-tabs {
+      display: flex;
+      gap: 5px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 5px;
+    }
+    #jof-portfolio .filter-tab {
+      font-family: var(--ff-display);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      background: none;
+      border: none;
+      padding: 7px 17px;
+      border-radius: 100px;
+      transition: background var(--ease), color var(--ease);
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    #jof-portfolio .filter-tab.active { background: var(--gold); color: #0a0a0b; }
+    #jof-portfolio .filter-tab:hover:not(.active) { color: var(--text-hi); background: var(--bg-card); }
+    #jof-portfolio .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    #jof-portfolio .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: border-color var(--ease), transform var(--ease), box-shadow var(--ease);
+    }
+    #jof-portfolio .project-card:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-5px);
+      box-shadow: 0 18px 52px rgba(0,0,0,0.4);
+    }
+    #jof-portfolio .project-card[data-hidden="true"] { display: none; }
+    #jof-portfolio .project-img {
+      position: relative;
+      height: 185px;
+      overflow: hidden;
+    }
+    #jof-portfolio .project-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.55s ease;
+      filter: grayscale(10%) brightness(0.8);
+    }
+    #jof-portfolio .project-card:hover .project-img img { transform: scale(1.05); }
+    #jof-portfolio .project-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,10,11,0.8) 0%, transparent 55%);
+    }
+    #jof-portfolio .project-category-badge {
+      position: absolute;
+      top: 13px; left: 13px;
+      font-family: var(--ff-display);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #0a0a0b;
+      background: var(--gold);
+      padding: 4px 11px;
+      border-radius: 100px;
+    }
+    #jof-portfolio .project-body {
+      padding: 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    #jof-portfolio .project-title {
+      font-family: var(--ff-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text-hi);
+      margin-bottom: 9px;
+    }
+    #jof-portfolio .project-desc {
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      line-height: 1.72;
+      margin-bottom: 16px;
+      flex: 1;
+      font-family: var(--ff-body);
+    }
+    #jof-portfolio .project-stat {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.78rem;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 16px;
+      font-family: var(--ff-body);
+    }
+    #jof-portfolio .project-stat::before {
+      content: '';
+      display: inline-block;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+    #jof-portfolio .tag-list { display: flex; flex-wrap: wrap; gap: 6px; }
+    #jof-portfolio .tag {
+      font-family: var(--ff-display);
+      font-size: 0.64rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-lo);
+      background: var(--bg-deep);
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      border-radius: 100px;
+    }
+
+    /* ── EXPERIENCE ── */
+    #jof-portfolio #jof-experience { background: var(--bg-surface); }
+    #jof-portfolio .timeline {
+      position: relative;
+      padding-left: 36px;
+      margin-top: 52px;
+    }
+    #jof-portfolio .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 1px; height: 100%;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+    }
+    #jof-portfolio .timeline-item { position: relative; margin-bottom: 52px; }
+    #jof-portfolio .timeline-item:last-child { margin-bottom: 0; }
+    #jof-portfolio .timeline-dot {
+      position: absolute;
+      top: 6px; left: -41px;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 0 4px rgba(212,175,55,0.15);
+    }
+    #jof-portfolio .timeline-date {
+      font-family: var(--ff-display);
+      font-size: 0.67rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 9px;
+    }
+    #jof-portfolio .timeline-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 26px;
+      transition: border-color var(--ease);
+    }
+    #jof-portfolio .timeline-card:hover { border-color: var(--border-accent); }
+    #jof-portfolio .timeline-role {
+      font-family: var(--ff-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-hi);
+      margin-bottom: 3px;
+    }
+    #jof-portfolio .timeline-company {
+      font-size: 0.84rem;
+      color: var(--text-mid);
+      margin-bottom: 16px;
+      font-family: var(--ff-body);
+    }
+    #jof-portfolio .timeline-achievements { display: flex; flex-direction: column; gap: 10px; }
+    #jof-portfolio .timeline-achievements li {
+      font-size: 0.87rem;
+      color: var(--text-mid);
+      line-height: 1.72;
+      padding-left: 18px;
+      position: relative;
+      font-family: var(--ff-body);
+    }
+    #jof-portfolio .timeline-achievements li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-size: 0.76rem;
+    }
+    #jof-portfolio .timeline-achievements li strong { color: var(--text-hi); font-weight: 500; }
+
+    /* ── EDUCATION STRIP ── */
+    #jof-portfolio .education-strip {
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 56px 0;
+    }
+    #jof-portfolio .edu-cards {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-top: 26px;
+    }
+    #jof-portfolio .edu-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 20px 24px;
+      flex: 1;
+      min-width: 210px;
+      transition: border-color var(--ease);
+    }
+    #jof-portfolio .edu-card:hover { border-color: var(--border-accent); }
+    #jof-portfolio .edu-card-school {
+      font-family: var(--ff-display);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+    #jof-portfolio .edu-card-degree {
+      font-family: var(--ff-display);
+      font-size: 0.93rem;
+      font-weight: 700;
+      color: var(--text-hi);
+      margin-bottom: 5px;
+    }
+    #jof-portfolio .edu-card-detail {
+      font-size: 0.78rem;
+      color: var(--text-mid);
+      font-family: var(--ff-body);
+    }
+
+    /* ── SKILLS ── */
+    #jof-portfolio #jof-skills { background: var(--bg-deep); }
+    #jof-portfolio .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
+      gap: 20px;
+      margin-top: 48px;
+    }
+    #jof-portfolio .skills-group {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 24px;
+      transition: border-color var(--ease);
+    }
+    #jof-portfolio .skills-group:hover { border-color: var(--border-accent); }
+    #jof-portfolio .skills-group-label {
+      font-family: var(--ff-display);
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+    #jof-portfolio .chips { display: flex; flex-wrap: wrap; gap: 7px; }
+    #jof-portfolio .chip {
+      font-family: var(--ff-display);
+      font-size: 0.74rem;
+      font-weight: 600;
+      color: var(--text-mid);
+      background: var(--bg-deep);
+      border: 1px solid var(--border);
+      padding: 6px 13px;
+      border-radius: 6px;
+      transition: color var(--ease), border-color var(--ease), background var(--ease);
+    }
+    #jof-portfolio .chip:hover {
+      color: var(--gold);
+      border-color: var(--border-accent);
+      background: var(--gold-glow);
+    }
+
+    /* ── CONTACT ── */
+    #jof-portfolio #jof-contact { background: var(--bg-deep); }
+    #jof-portfolio .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 68px;
+      align-items: start;
+    }
+    #jof-portfolio .contact-info p {
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      line-height: 1.82;
+      margin-top: 16px;
+      margin-bottom: 32px;
+      font-family: var(--ff-body);
+    }
+    #jof-portfolio .contact-links { display: flex; flex-direction: column; }
+    #jof-portfolio .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      transition: color var(--ease);
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      font-family: var(--ff-body);
+    }
+    #jof-portfolio .contact-link:hover { color: var(--gold); }
+    #jof-portfolio .contact-link:last-child { border-bottom: none; }
+    #jof-portfolio .contact-link svg { width: 16px; height: 16px; flex-shrink: 0; }
+    #jof-portfolio .contact-form { display: flex; flex-direction: column; gap: 16px; }
+    #jof-portfolio .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 13px;
+    }
+    #jof-portfolio .form-field { display: flex; flex-direction: column; gap: 6px; }
+    #jof-portfolio .form-field label {
+      font-family: var(--ff-display);
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-lo);
+    }
+    #jof-portfolio .form-field input,
+    #jof-portfolio .form-field textarea {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-sm);
+      padding: 12px 15px;
+      font-family: var(--ff-body);
+      font-size: 0.87rem;
+      color: var(--text-hi);
+      outline: none;
+      transition: border-color var(--ease);
+      resize: none;
+      width: 100%;
+    }
+    #jof-portfolio .form-field input:focus,
+    #jof-portfolio .form-field textarea:focus { border-color: var(--gold); }
+    #jof-portfolio .form-field input::placeholder,
+    #jof-portfolio .form-field textarea::placeholder { color: var(--text-lo); }
+    #jof-portfolio .form-field textarea { min-height: 120px; }
+    #jof-portfolio .btn-submit {
+      align-self: flex-start;
+      font-family: var(--ff-display);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #0a0a0b;
+      background: var(--gold);
+      border: none;
+      padding: 14px 32px;
+      border-radius: 100px;
+      cursor: pointer;
+      transition: transform var(--ease), box-shadow var(--ease);
+    }
+    #jof-portfolio .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(212,175,55,0.26);
+    }
+
+    /* ── FOOTER ── */
+    #jof-portfolio footer {
+      border-top: 1px solid var(--border);
+      padding: 26px 0;
+      background: var(--bg-deep);
+    }
+    #jof-portfolio .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+    #jof-portfolio .footer-brand {
+      font-family: var(--ff-display);
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--text-hi);
+    }
+    #jof-portfolio .footer-brand span { color: var(--gold); }
+    #jof-portfolio .footer-copy {
+      font-size: 0.74rem;
+      color: var(--text-lo);
+      font-family: var(--ff-body);
+    }
+    #jof-portfolio .footer-links { display: flex; gap: 16px; }
+    #jof-portfolio .footer-links a {
+      font-size: 0.74rem;
+      color: var(--text-lo);
+      font-family: var(--ff-body);
+      transition: color var(--ease);
+    }
+    #jof-portfolio .footer-links a:hover { color: var(--text-mid); }
+
+    /* ── KEYFRAMES ── */
+    @keyframes jofUp {
+      from { opacity: 0; transform: translateY(26px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes jofLeft {
+      from { opacity: 0; transform: translateX(26px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes jofPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(74,222,128,0.4); }
+      50%       { box-shadow: 0 0 0 6px rgba(74,222,128,0); }
+    }
+
+    #jof-portfolio .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    #jof-portfolio .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      #jof-portfolio .hero-grid       { grid-template-columns: 1fr; gap: 48px; }
+      #jof-portfolio .hero-visual     { max-width: 300px; }
+      #jof-portfolio .about-grid      { grid-template-columns: 1fr; gap: 40px; }
+      #jof-portfolio .contact-grid    { grid-template-columns: 1fr; gap: 40px; }
+      #jof-portfolio .nav-links,
+      #jof-portfolio .nav-cta         { display: none; }
+      #jof-portfolio .nav-hamburger   { display: flex; }
+    }
+    @media (max-width: 640px) {
+      #jof-portfolio section          { padding: 68px 0; }
+      #jof-portfolio .projects-header { flex-direction: column; align-items: flex-start; }
+      #jof-portfolio .filter-tabs     { flex-wrap: wrap; border-radius: var(--r-md); }
+      #jof-portfolio .projects-grid   { grid-template-columns: 1fr; }
+      #jof-portfolio .form-row        { grid-template-columns: 1fr; }
+      #jof-portfolio .footer-inner    { flex-direction: column; text-align: center; }
+      #jof-portfolio .hero-name       { font-size: clamp(2.5rem, 10vw, 3.2rem); }
+      #jof-portfolio .edu-cards       { flex-direction: column; }
+      #jof-portfolio .hero-stat-badge { bottom: -12px; left: -10px; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="jof-portfolio">
+
+  <!-- Mobile nav drawer -->
+  <div class="mobile-nav" id="jofMobileNav">
+    <button class="mobile-nav-close" id="jofMobileClose">&#x2715;</button>
+    <a href="#jof-about"      onclick="jofCloseMobile()">About</a>
+    <a href="#jof-projects"   onclick="jofCloseMobile()">Projects</a>
+    <a href="#jof-experience" onclick="jofCloseMobile()">Experience</a>
+    <a href="#jof-skills"     onclick="jofCloseMobile()">Skills</a>
+    <a href="#jof-contact"    onclick="jofCloseMobile()">Contact</a>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="container nav-inner">
+      <a href="#jof-portfolio" class="nav-logo">J<span>F</span></a>
+      <ul class="nav-links">
+        <li><a href="#jof-about">About</a></li>
+        <li><a href="#jof-projects">Projects</a></li>
+        <li><a href="#jof-experience">Experience</a></li>
+        <li><a href="#jof-skills">Skills</a></li>
+        <li><a href="#jof-contact">Contact</a></li>
+      </ul>
+      <a href="mailto:jfashe@uh.edu" class="nav-cta">Hire Me</a>
+      <button class="nav-hamburger" id="jofHamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="jof-hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="availability">
+            <div class="availability-dot"></div>
+            Available for work &middot; June &ndash; November 2026
+          </div>
+          <div class="hero-eyebrow">Aspiring AI/ML Engineer &middot; Founder &middot; Builder</div>
+          <h1 class="hero-name">Joshua<br><span class="line2">O. Fashe</span></h1>
+          <p class="hero-sub">
+            <strong>Computer Engineering student at the University of Houston</strong> building agentic AI systems, predictive ML pipelines, and a commercial multimedia business.
+          </p>
+          <div class="hero-actions">
+            <a href="#jof-projects" class="btn-primary">
+              View My Work
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <div class="hero-icon-links">
+              <a href="https://github.com/jfashe" target="_blank" class="icon-link" aria-label="GitHub">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              </a>
+              <a href="https://linkedin.com/in/jfashe" target="_blank" class="icon-link" aria-label="LinkedIn">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              </a>
+              <a href="mailto:jfashe@uh.edu" class="icon-link" aria-label="Email">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-img-frame">
+            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&q=80" alt="Engineering workspace" loading="eager" />
+          </div>
+          <div class="hero-stat-badge">
+            <div class="stat-num">97.4%</div>
+            <div class="stat-label">ML Classification Accuracy</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="jof-about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <div class="section-label">About Me</div>
+          <h2 class="section-title">Two worlds.<br>One drive.</h2>
+          <p>I'm a Computer Engineering student at the University of Houston with a clear focus: build systems that work at scale. On one track, I design and ship ML pipelines and agentic AI tools. On the other, I run a commercial multimedia company with 70+ clients served and a 48-hour delivery guarantee.</p>
+          <p>Both demand the same thing &mdash; <strong>rigorous problem decomposition, fast iteration, and accountability on outcomes.</strong> Technical and creative aren't separate. They're two tools for the same goal: shipping measurable, reproducible results.</p>
+          <p>Currently completing Andrew Ng's Machine Learning Specialty Certification (Deeplearning.AI, expected June 2026) while finishing my B.S. in Computer Engineering (expected May 2028).</p>
+        </div>
+        <div class="about-duality reveal">
+          <div class="duality-card">
+            <div class="duality-card-icon">&#9881;&#65039;</div>
+            <h3>Machine Learning Engineer</h3>
+            <p>Building end-to-end supervised ML pipelines, agentic automation systems, and LLM-assisted developer workflows. Tools: Python, scikit-learn, NumPy, Claude Code, AWS, Azure.</p>
+          </div>
+          <div class="duality-card">
+            <div class="duality-card-icon">&#127916;</div>
+            <h3>Founder &mdash; MogulFilmz Media</h3>
+            <p>Running a fast-turnaround multimedia studio specializing in studio photography, event videography, and digital marketing. 70+ shoots completed. 48-hour average delivery. Brenham, TX.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="jof-projects">
+    <div class="container">
+      <div class="projects-header">
+        <div class="reveal">
+          <div class="section-label">Portfolio</div>
+          <h2 class="section-title">Selected Work</h2>
+        </div>
+        <div class="filter-tabs reveal">
+          <button class="filter-tab active" data-filter="all">All Projects</button>
+          <button class="filter-tab" data-filter="ml">ML &amp; Engineering</button>
+          <button class="filter-tab" data-filter="media">Multimedia</button>
+        </div>
+      </div>
+      <div class="projects-grid">
+
+        <div class="project-card reveal" data-category="ml">
+          <div class="project-img">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700&q=75" alt="ML Infrastructure" loading="lazy" />
+            <div class="project-img-overlay"></div>
+            <span class="project-category-badge">ML &amp; Engineering</span>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">ML Infrastructure Automation</h3>
+            <p class="project-desc">Agentic monitoring system in Python and Linux to automate workflow orchestration, real-time CPU logging, and training validation. Binary classification with NumPy logistic regression.</p>
+            <div class="project-stat">Loss 0.693 &rarr; 0.436 &middot; 97.4% classification accuracy</div>
+            <div class="tag-list">
+              <span class="tag">Python</span><span class="tag">Linux</span><span class="tag">NumPy</span><span class="tag">JSON</span><span class="tag">Git</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="ml">
+          <div class="project-img">
+            <img src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=700&q=75" alt="CO2 Emissions Predictor" loading="lazy" />
+            <div class="project-img-overlay"></div>
+            <span class="project-category-badge">ML &amp; Engineering</span>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Vehicle CO&#8322; Emissions Predictor</h3>
+            <p class="project-desc">End-to-end supervised ML pipeline for structured vehicle emissions data. RandomForest regression with 80/20 train-test split; evaluated on fully unseen data.</p>
+            <div class="project-stat">R&sup2; = 98.6% &middot; MAE 3.13 g/km on unseen data</div>
+            <div class="tag-list">
+              <span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">RandomForest</span><span class="tag">Pandas</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="media">
+          <div class="project-img">
+            <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=700&q=75" alt="MogulFilmz" loading="lazy" />
+            <div class="project-img-overlay"></div>
+            <span class="project-category-badge">Multimedia</span>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">MogulFilmz Media</h3>
+            <p class="project-desc">Founder-operated multimedia company delivering studio photography, event videography, and digital marketing. Built from zero to 70+ clients with strict delivery SLAs.</p>
+            <div class="project-stat">70+ client shoots &middot; 48-hr avg. turnaround &middot; since Sep 2023</div>
+            <div class="tag-list">
+              <span class="tag">Photography</span><span class="tag">Videography</span><span class="tag">Digital Marketing</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card reveal" data-category="ml">
+          <div class="project-img">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&q=75" alt="KPI Dashboards" loading="lazy" />
+            <div class="project-img-overlay"></div>
+            <span class="project-category-badge">ML &amp; Engineering</span>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Operational KPI Dashboard Suite</h3>
+            <p class="project-desc">4 Tableau dashboards synthesizing 250,000+ daily operational logs into real-time KPIs. PostgreSQL indexing and parameterized stored procedures cut latency by 45%.</p>
+            <div class="project-stat">250K+ daily logs &middot; 45% query latency reduction</div>
+            <div class="tag-list">
+              <span class="tag">Tableau</span><span class="tag">PostgreSQL</span><span class="tag">SQL</span><span class="tag">Big Data</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="jof-experience">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label">Experience</div>
+        <h2 class="section-title">Where I've<br>Delivered</h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Jun 2024 &ndash; Aug 2024 &middot; Landover, MD</div>
+          <div class="timeline-card">
+            <h3 class="timeline-role">Management Information Systems Apprentice</h3>
+            <p class="timeline-company">Design Fortune Inc.</p>
+            <ul class="timeline-achievements">
+              <li>Architected and deployed <strong>4 dynamic Tableau dashboards</strong>, distilling 250,000+ daily printing logs into real-time operational KPIs.</li>
+              <li>Optimized Big Data infrastructure by indexing high-traffic PostgreSQL tables and parameterizing stored procedures &mdash; <strong>reducing query latency by 45%</strong> and eliminating critical system failures.</li>
+              <li>Fine-tuned Xerox commercial printers for a <strong>15% increase in job throughput</strong> with reduced paper waste.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Sep 2023 &ndash; Present &middot; Brenham, TX</div>
+          <div class="timeline-card">
+            <h3 class="timeline-role">Founder &amp; CEO</h3>
+            <p class="timeline-company">MogulFilmz Media &middot; mogulfilmz.com</p>
+            <ul class="timeline-achievements">
+              <li>Built a freelance multimedia company from scratch &mdash; studio photography, event videography, and digital marketing.</li>
+              <li>Executed <strong>70+ client shoots</strong> with a strict 48-hour average turnaround under hard deadlines.</li>
+              <li>End-to-end ownership of client relationships, shoot logistics, and creative delivery.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <div class="education-strip">
+    <div class="container">
+      <div class="section-label reveal">Education &amp; Certifications</div>
+      <div class="edu-cards">
+        <div class="edu-card reveal">
+          <div class="edu-card-school">University of Houston</div>
+          <div class="edu-card-degree">B.S. Computer Engineering</div>
+          <div class="edu-card-detail">Cullen College of Engineering &middot; Expected May 2028</div>
+        </div>
+        <div class="edu-card reveal">
+          <div class="edu-card-school">Deeplearning.AI</div>
+          <div class="edu-card-degree">Machine Learning Specialty</div>
+          <div class="edu-card-detail">Andrew Ng &middot; Expected June 2026</div>
+        </div>
+        <div class="edu-card reveal">
+          <div class="edu-card-school">Harvard University SEAS</div>
+          <div class="edu-card-degree">CS50P &mdash; Python</div>
+          <div class="edu-card-detail">Certification &middot; August 2024</div>
+        </div>
+        <div class="edu-card reveal">
+          <div class="edu-card-school">Blinn College</div>
+          <div class="edu-card-degree">NSBE Founder &amp; President</div>
+          <div class="edu-card-detail">Resident Assistant &middot; Aug 2025 &ndash; May 2026</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SKILLS -->
+  <section id="jof-skills">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label">Technical Skills</div>
+        <h2 class="section-title">Tools I Work With</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skills-group reveal">
+          <div class="skills-group-label">Languages &amp; Tools</div>
+          <div class="chips">
+            <span class="chip">Python</span><span class="chip">MATLAB</span><span class="chip">C++</span><span class="chip">JavaScript</span><span class="chip">SQL</span><span class="chip">Claude Code</span>
+          </div>
+        </div>
+        <div class="skills-group reveal">
+          <div class="skills-group-label">Libraries &amp; Frameworks</div>
+          <div class="chips">
+            <span class="chip">NumPy</span><span class="chip">Pandas</span><span class="chip">Matplotlib</span><span class="chip">scikit-learn</span>
+          </div>
+        </div>
+        <div class="skills-group reveal">
+          <div class="skills-group-label">Infrastructure &amp; Systems</div>
+          <div class="chips">
+            <span class="chip">Linux</span><span class="chip">Git</span><span class="chip">AWS</span><span class="chip">Azure</span><span class="chip">Cisco</span><span class="chip">SysML</span>
+          </div>
+        </div>
+        <div class="skills-group reveal">
+          <div class="skills-group-label">Data &amp; Visualization</div>
+          <div class="chips">
+            <span class="chip">Tableau</span><span class="chip">PostgreSQL</span><span class="chip">VS Code</span><span class="chip">JSON</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="jof-contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <div class="section-label">Contact</div>
+          <h2 class="section-title">Let's Build<br>Something.</h2>
+          <p>Available for work-terms, internships, and collaborations between June and November 2026. Open to ML engineering roles, data infrastructure, and agentic AI projects.</p>
+          <div class="contact-links">
+            <a href="mailto:jfashe@uh.edu" class="contact-link">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              jfashe@uh.edu
+            </a>
+            <a href="https://linkedin.com/in/jfashe" target="_blank" class="contact-link">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+              linkedin.com/in/jfashe
+            </a>
+            <a href="https://github.com/jfashe" target="_blank" class="contact-link">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              github.com/jfashe
+            </a>
+            <a href="tel:+12409750486" class="contact-link">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.56a16 16 0 0 0 6 6l1.38-1.38a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              (240) 975-0486
+            </a>
+          </div>
+        </div>
+        <div class="contact-form reveal">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="jofFname">First Name</label>
+              <input type="text" id="jofFname" placeholder="Alex" />
+            </div>
+            <div class="form-field">
+              <label for="jofLname">Last Name</label>
+              <input type="text" id="jofLname" placeholder="Johnson" />
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="jofEmail">Email Address</label>
+            <input type="email" id="jofEmail" placeholder="hello@company.com" />
+          </div>
+          <div class="form-field">
+            <label for="jofSubject">Subject</label>
+            <input type="text" id="jofSubject" placeholder="Internship &middot; ML role &middot; Collaboration" />
+          </div>
+          <div class="form-field">
+            <label for="jofMessage">Message</label>
+            <textarea id="jofMessage" placeholder="Tell me about the project or opportunity..."></textarea>
+          </div>
+          <button class="btn-submit" type="button" onclick="jofHandleSubmit()">Send Message &rarr;</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-brand">Mogul<span>Filmz</span> &middot; Joshua O. Fashe</div>
+      <p class="footer-copy">&copy; 2026 MogulFilmz Media. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="https://github.com/jfashe" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/in/jfashe" target="_blank">LinkedIn</a>
+        <a href="mailto:jfashe@uh.edu">Email</a>
+      </div>
+    </div>
+  </footer>
+
+</div><!-- /#jof-portfolio -->
+
+<script>
+(function() {
+  "use strict";
+
+  // ── Mobile nav ──
+  var nav   = document.getElementById('jofMobileNav');
+  var ham   = document.getElementById('jofHamburger');
+  var close = document.getElementById('jofMobileClose');
+  if (ham)   ham.addEventListener('click',   function() { nav.classList.add('open'); });
+  if (close) close.addEventListener('click', function() { nav.classList.remove('open'); });
+  window.jofCloseMobile = function() { nav && nav.classList.remove('open'); };
+
+  // ── Project filter ──
+  var tabs  = document.querySelectorAll('#jof-portfolio .filter-tab');
+  var cards = document.querySelectorAll('#jof-portfolio .project-card');
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      tabs.forEach(function(t) { t.classList.remove('active'); });
+      tab.classList.add('active');
+      var f = tab.getAttribute('data-filter');
+      cards.forEach(function(card) {
+        var show = f === 'all' || card.getAttribute('data-category') === f;
+        card.style.display = show ? 'flex' : 'none';
+      });
+    });
+  });
+
+  // ── Scroll reveal ──
+  var els = document.querySelectorAll('#jof-portfolio .reveal');
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+      });
+    }, { threshold: 0.07, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(function(el) { obs.observe(el); });
+  } else {
+    els.forEach(function(el) { el.classList.add('visible'); });
+  }
+
+  // ── Stagger grid children ──
+  ['#jof-portfolio .projects-grid',
+   '#jof-portfolio .edu-cards',
+   '#jof-portfolio .skills-grid'].forEach(function(sel) {
+    var grid = document.querySelector(sel);
+    if (!grid) return;
+    Array.from(grid.children).forEach(function(child, i) {
+      child.style.transitionDelay = (i * 70) + 'ms';
+    });
+  });
+
+  // ── In-page smooth scroll ──
+  document.querySelectorAll('#jof-portfolio a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      var target = document.querySelector(a.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
+
+  // ── Contact form via mailto ──
+  window.jofHandleSubmit = function() {
+    var fn  = document.getElementById('jofFname').value.trim();
+    var ln  = document.getElementById('jofLname').value.trim();
+    var em  = document.getElementById('jofEmail').value.trim();
+    var sub = document.getElementById('jofSubject').value.trim() || 'Portfolio Inquiry';
+    var msg = document.getElementById('jofMessage').value.trim();
+    if (!em || !msg) { alert('Please fill in your email and a message.'); return; }
+    var body = 'From: ' + fn + ' ' + ln + ' <' + em + '>\n\n' + msg;
+    window.location.href = 'mailto:jfashe@uh.edu?subject=' + encodeURIComponent(sub) + '&body=' + encodeURIComponent(body);
+  };
+
+})();
+</script>
+</body>
+</html>
