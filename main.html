@@ -950,6 +950,23 @@
       font-weight: 500;
       color: rgba(255,255,255,0.35);
     }
+    #jof-portfolio .apps-charts { grid-template-columns: 1fr; }
+    #jof-portfolio .apps-bar-wrap { height: 30px; }
+    #jof-portfolio .apps-bar { cursor: pointer; transition: width 0.5s ease, opacity 0.2s ease; }
+    #jof-portfolio .apps-bar-wrap.has-hover .apps-bar { opacity: 0.3; }
+    #jof-portfolio .apps-bar-wrap.has-hover .apps-bar.hl { opacity: 1; }
+    #jof-portfolio .apps-legend { display: flex; flex-wrap: wrap; gap: 6px 14px; margin-top: 14px; }
+    #jof-portfolio .apps-legend-item { display: inline-flex; align-items: center; gap: 8px; font-size: 0.78rem; color: var(--text-mid); cursor: pointer; padding: 4px 10px; border-radius: 6px; border: 1px solid transparent; transition: all var(--ease); font-family: var(--ff-body); }
+    #jof-portfolio .apps-legend-item:hover, #jof-portfolio .apps-legend-item.hl { color: var(--text-hi); border-color: var(--border); background: rgba(255,255,255,0.03); }
+    #jof-portfolio .apps-legend-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    #jof-portfolio .apps-insight { margin-top: 14px; padding: 14px 16px; background: var(--bg-deep); border: 1px solid var(--border); border-radius: var(--r-sm); font-size: 0.82rem; color: var(--text-mid); line-height: 1.7; min-height: 92px; font-family: var(--ff-body); }
+    #jof-portfolio .apps-insight strong { color: var(--text-hi); font-weight: 500; }
+    #jof-portfolio .apps-insight-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-top: 8px; }
+    #jof-portfolio .apps-insight-grid label { display: block; font-family: var(--ff-display); font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-lo); }
+    #jof-portfolio .apps-insight-grid span { color: var(--text-hi); }
+    #jof-portfolio .apps-sortable { cursor: pointer; user-select: none; display: flex; align-items: center; gap: 6px; transition: color var(--ease); }
+    #jof-portfolio .apps-sortable:hover, #jof-portfolio .apps-sortable.active { color: var(--gold); }
+    #jof-portfolio .apps-sort-ind { font-size: 0.6rem; opacity: 0.8; }
     #jof-portfolio .apps-table-wrap {
       background: var(--bg-card);
       border: 1px solid var(--border);
@@ -958,7 +975,7 @@
     }
     #jof-portfolio .apps-table-header {
       display: grid;
-      grid-template-columns: 2fr 1.2fr 0.8fr 1fr 1.5fr;
+      grid-template-columns: 2fr 1.4fr 0.9fr 1fr 1.3fr;
       padding: 14px 20px;
       border-bottom: 1px solid var(--border);
       font-family: var(--ff-display);
@@ -971,7 +988,7 @@
     }
     #jof-portfolio .apps-row {
       display: grid;
-      grid-template-columns: 2fr 1.2fr 0.8fr 1fr 1.5fr;
+      grid-template-columns: 2fr 1.4fr 0.9fr 1fr 1.3fr;
       padding: 14px 20px;
       border-bottom: 1px solid var(--border);
       font-size: 0.84rem;
@@ -1233,7 +1250,10 @@
       #jof-portfolio .apps-toolbar-right { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
       #jof-portfolio .apps-select, #jof-portfolio .apps-input { min-width: 100%; width: 100%; }
       #jof-portfolio .apps-charts { grid-template-columns: 1fr; }
-      #jof-portfolio .apps-table-header { grid-template-columns: 2.2fr 1fr 1fr; }
+      #jof-portfolio .apps-table-header,
+      #jof-portfolio .apps-row { grid-template-columns: 2.2fr 1.2fr 0.9fr; }
+      #jof-portfolio .apps-row > .apps-col:nth-child(4),
+      #jof-portfolio .apps-row > .apps-col:nth-child(5) { display: none; }
       #jof-portfolio .apps-table-header .apps-col:nth-child(4),
       #jof-portfolio .apps-table-header .apps-col:nth-child(5) { display: none; }
     }
@@ -1291,9 +1311,9 @@
           <span class="info-divider">|</span>
           <span class="info-item">240-975-0486</span>
           <span class="info-divider">|</span>
-          <span class="info-item">Bowie, MD</span>
+          <span class="info-item">Houston, TX</span>
         </div>
-        <p class="info-availability">Available for work Aug 2026 - December 2026. Seeking both internships and co-ops.</p>
+        <p class="info-availability">Seeking Internship and Co-Ops for Jan 2027-August 2027</p>
       </div>
     </div>
   </nav>
@@ -1304,7 +1324,7 @@
         <div class="hero-content">
           <div class="availability">
             <div class="availability-dot"></div>
-            Available for work &middot; August - December 2026
+            Available for work Jan-Aug 2027
           </div>
           <div class="hero-eyebrow">Aspiring AI/ML Engineer &middot; Founder &middot; Builder</div>
           <h1 class="hero-name">Joshua<br><span class="line2">O. Fashe</span></h1>
@@ -1458,44 +1478,44 @@
         <h2 class="section-title">Where I've<br>Delivered</h2>
       </div>
       <div class="timeline">
-        <!-- UPCOMING POSITION: InVita Healthcare Technology -->
-        <div class="timeline-item reveal">
-          <div class="timeline-dot" style="background: var(--gold); box-shadow: 0 0 0 6px rgba(212,175,55,0.3), 0 0 12px var(--gold);"></div>
-          <div class="timeline-date">Jun 2026 - Aug 2026 &middot; Baltimore, MD (Hybrid)</div>
-          <div class="timeline-card" style="border-color: var(--border-accent);">
-            <h3 class="timeline-role">AI Development Intern</h3>
-            <p class="timeline-company">InVita Healthcare Technologies</p>
-            <ul class="timeline-achievements">
-              <li>Selected for an intensive 8-week AI Summer program developing specialized medical software to support public health and safety.</li>
-              <li>Designing, building, and iterating on AI-powered tools and agentic workflows utilizing advanced developer platforms like Claude Code and the Model Context Protocol (MCP).</li>
-              <li>Collaborating within engineering project pods to build data pipeline architectures, structure schema validations, and prototype mobile-first user experiences.</li>
-              <li>Conducting agent-led stress testing and engineering technical documentation to validate prototype reliability for the InVita AI Summer Showcase.</li>
-            </ul>
-          </div>
-        </div>
         <div class="timeline-item reveal">
           <div class="timeline-dot"></div>
-          <div class="timeline-date">Jun 2024 - Aug 2024 &middot; Landover, MD</div>
+          <div class="timeline-date">Jan 2026 - Jul 2026 &middot; University of Houston</div>
           <div class="timeline-card">
-            <h3 class="timeline-role">Management Information Systems Apprentice</h3>
-            <p class="timeline-company">Design Fortune Inc.</p>
+            <h3 class="timeline-role">ML Interpretability Research Assistant</h3>
+            <p class="timeline-company">University of Houston, Department of Computer Science</p>
             <ul class="timeline-achievements">
-              <li>Architected and deployed <strong>4 dynamic Tableau dashboards</strong>, distilling 250,000+ daily printing logs into real-time operational KPIs.</li>
-              <li>Optimized Big Data infrastructure by indexing high-traffic PostgreSQL tables and parameterizing stored procedures <strong>reducing query latency by 45%</strong> and eliminating critical system failures.</li>
-              <li>Fine-tuned Xerox commercial printers for a <strong>15% increase in job throughput</strong> with reduced paper waste.</li>
+              <li>Assisted graduate researchers on <strong>neural network pruning</strong> projects by writing PyTorch scripts to evaluate model compression techniques for Hardware-Aware Model Pruning (HAMP) trials.</li>
+              <li>Processed hardware latency profiles and <strong>automated structured pruning loops</strong> to meet specified performance targets.</li>
+              <li>Generated performance charts and visual saliency heatmaps with Matplotlib to document and communicate experimental results.</li>
             </ul>
           </div>
         </div>
         <div class="timeline-item reveal">
           <div class="timeline-dot"></div>
-          <div class="timeline-date">Sep 2023 - Present &middot; Brenham, TX</div>
+          <div class="timeline-date">Sep 2023 - Present &middot; Houston, TX</div>
           <div class="timeline-card">
             <h3 class="timeline-role">Founder &amp; CEO</h3>
             <p class="timeline-company">MogulFilmz Media &middot; mogulfilmz.com</p>
             <ul class="timeline-achievements">
-              <li>Built a freelance multimedia company from scratch &mdash; studio photography, event videography, and digital marketing.</li>
-              <li>Executed <strong>200+ client shoots</strong> with a strict 72-hour average turnaround under hard deadlines.</li>
-              <li>End-to-end ownership of client relationships, shoot logistics, and creative delivery.</li>
+              <li>Built a freelance multimedia company specializing in studio photography, event videography, and digital marketing.</li>
+              <li>Planned and executed shoots around client constraints, delivering high-quality, reliable work under strict deadlines.</li>
+              <li>Completed <strong>70+ client shoots</strong> while maintaining a <strong>72-hour average turnaround</strong>.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Blinn College</div>
+          <div class="timeline-card">
+            <h3 class="timeline-role">Founder &amp; President</h3>
+            <p class="timeline-company">National Society of Black Engineers (NSBE), Blinn College Chapter</p>
+            <ul class="timeline-achievements">
+              <li><strong>Founded the Blinn College NSBE chapter</strong> and served as its president.</li>
+              <li>Organized and ran chapter meetings.</li>
+              <li>Conducted events together with NSBE chapters from other schools.</li>
+              <li>Worked on scholarship opportunities for chapter members.</li>
+              <li>Led campus outreach to promote the chapter and engineering on campus.</li>
             </ul>
           </div>
         </div>
@@ -1608,7 +1628,19 @@
 
           <label class="apps-field">
             <span class="apps-field-label">Search Query</span>
-            <input id="apps-search" class="apps-input" placeholder="Search parameters…" />
+            <input id="apps-search" class="apps-input" placeholder="Search role or location…" />
+          </label>
+          <label class="apps-field">
+            <span class="apps-field-label">Sort By</span>
+            <select id="apps-sort" class="apps-select">
+              <option value="default">Default order</option>
+              <option value="stage-asc">Application Stage (A-Z)</option>
+              <option value="stage-desc">Application Stage (Z-A)</option>
+              <option value="date-desc">Applied (Newest first)</option>
+              <option value="date-asc">Applied (Oldest first)</option>
+              <option value="ats-desc">ATS Rating (High to Low)</option>
+              <option value="ats-asc">ATS Rating (Low to High)</option>
+            </select>
           </label>
         </div>
       </div>
@@ -1618,23 +1650,15 @@
       <!-- Surface Graphical Aggregations -->
       <div id="apps-charts" class="apps-charts">
         <div class="apps-chart">
-          <div class="apps-chart-title">Pipeline Status Distribution</div>
-          <div class="apps-bar-wrap">
-            <div class="apps-bar" id="apps-bar-applied" style="background: #8a8794;" title="Applied"></div>
-            <div class="apps-bar" id="apps-bar-interview" style="background: #d4af37;" title="Interview"></div>
-            <div class="apps-bar" id="apps-bar-offer" style="background: #4ade80;" title="Offer"></div>
-            <div class="apps-bar" id="apps-bar-rejected" style="background: #ef4444;" title="Rejected"></div>
+          <div class="apps-chart-title">Application Status Distribution</div>
+          <div class="apps-bar-wrap" id="apps-bar-wrap">
+            <div class="apps-bar" id="apps-bar-applied" data-status="Applied" style="background:#8a8794;"></div>
+            <div class="apps-bar" id="apps-bar-interview" data-status="Interview" style="background:#d4af37;"></div>
+            <div class="apps-bar" id="apps-bar-offer" data-status="Offer" style="background:#4ade80;"></div>
+            <div class="apps-bar" id="apps-bar-rejected" data-status="Rejected" style="background:#ef4444;"></div>
           </div>
-        </div>
-        <div class="apps-chart">
-          <div class="apps-chart-title">ATS Matrix Heat Array</div>
-          <div class="apps-heat-grid" id="apps-heat-grid">
-            <div class="apps-heat-cell" id="heat-90" style="background: rgba(74,222,128,0.2);" data-label="90+"></div>
-            <div class="apps-heat-cell" id="heat-80" style="background: rgba(212,175,55,0.2);" data-label="80-89"></div>
-            <div class="apps-heat-cell" id="heat-70" style="background: rgba(212,175,55,0.08);" data-label="70-79"></div>
-            <div class="apps-heat-cell" id="heat-60" style="background: rgba(239,68,68,0.1);" data-label="60-69"></div>
-            <div class="apps-heat-cell" id="heat-0" style="background: rgba(255,255,255,0.02);" data-label="N/A"></div>
-          </div>
+          <div class="apps-legend" id="apps-legend"></div>
+          <div class="apps-insight" id="apps-insight">Hover over a segment (or a label above) to see details. Click one to filter the table below.</div>
         </div>
       </div>
 
@@ -1643,11 +1667,11 @@
       <!-- Masked Dynamic Interactive Data Table Matrix -->
       <div class="apps-table-wrap">
         <div class="apps-table-header">
-          <div class="apps-col">Role Context</div>
-          <div class="apps-col">Pipeline Stage</div>
-          <div class="apps-col">ATS Metric</div>
-          <div class="apps-col">Applied</div>
-          <div class="apps-col">Target Horizon</div>
+          <div class="apps-col">Role</div>
+          <div class="apps-col apps-sortable" data-sort="stage" title="Sort by Application Stage (A-Z)">Application Stage <span class="apps-sort-ind">↕</span></div>
+          <div class="apps-col apps-sortable" data-sort="ats" title="Sort by ATS Rating">ATS Rating <span class="apps-sort-ind">↕</span></div>
+          <div class="apps-col apps-sortable" data-sort="date" title="Sort by date applied">Applied <span class="apps-sort-ind">↕</span></div>
+          <div class="apps-col">Location</div>
         </div>
         <div id="apps-table" class="apps-table">
           <!-- Injecting array data structures symmetrically from referenced data document -->
@@ -1668,7 +1692,7 @@
 
           <div class="section-label">Contact</div>
           <h2 class="section-title">Let's Build<br>Something.</h2>
-          <p>Available for internships, co-ops and work-terms between August and December 2026. Open to ML engineering roles, data infrastructure, and agentic AI projects.</p>
+          <p>Available for internships, co-ops and work-terms between January and August 2027. Open to ML engineering roles, data infrastructure, and agentic AI projects.</p>
           <div class="contact-links">
             <a href="mailto:jfashe@uh.edu" class="contact-link">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
@@ -1870,6 +1894,33 @@
     { s: "Summer 2026", c: "Cisco", t: "Software Engineer Data/AI/Intelligent Systems II (Intern)", d: "6/01/2026", a: null, st: "Applied", l: "Fulton, MD", u: "http://careers.cisco.com" }
   ];
 
+  var sortKey = null, sortDir = 1;
+  var stageLabels = { Applied: 'Applied', Interview: 'Interviewing', Offer: 'Offer Stage', Rejected: 'Archived' };
+  function dateVal(s) { var p = s.split('/'); return new Date(+p[2], +p[0] - 1, +p[1]).getTime(); }
+  function compareRows(x, y) {
+    var a = rawData[x], b = rawData[y], r = 0;
+    if (sortKey === 'ats') {
+      if (a.a === null && b.a === null) return x - y;
+      if (a.a === null) return 1;
+      if (b.a === null) return -1;
+      r = a.a - b.a;
+    } else if (sortKey === 'date') {
+      r = dateVal(a.d) - dateVal(b.d);
+    } else if (sortKey === 'stage') {
+      r = stageLabels[a.st].localeCompare(stageLabels[b.st]);
+    }
+    return r ? r * sortDir : x - y;
+  }
+  function updateSortUI() {
+    document.querySelectorAll('#jof-portfolio .apps-sortable').forEach(function(hd) {
+      var on = hd.getAttribute('data-sort') === sortKey;
+      hd.classList.toggle('active', on);
+      hd.querySelector('.apps-sort-ind').textContent = on ? (sortDir === 1 ? '▲' : '▼') : '↕';
+    });
+    var sel = document.getElementById('apps-sort');
+    if (sel) sel.value = sortKey ? sortKey + '-' + (sortDir === 1 ? 'asc' : 'desc') : 'default';
+  }
+
   var filterStatus = document.getElementById('apps-filter-status');
   var searchInput  = document.getElementById('apps-search');
   var tableBody    = document.getElementById('apps-table');
@@ -1887,11 +1938,15 @@
     var chartOffer     = 0;
     var chartRejected  = 0;
 
-    var heat90 = 0, heat80 = 0, heat70 = 0, heat60 = 0, heat0 = 0;
+    
 
     tableBody.innerHTML = '';
 
-    rawData.forEach(function(item, idx) {
+    updateSortUI();
+    var order = rawData.map(function(_, i) { return i; });
+    if (sortKey) order.sort(compareRows);
+    order.forEach(function(idx) {
+      var item = rawData[idx];
       countTotal++;
       if (item.st === "Interview") countInt++;
       if (item.st === "Offer") countOff++;
@@ -1900,12 +1955,6 @@
       if (item.st === "Interview") chartInterview++;
       if (item.st === "Offer") chartOffer++;
       if (item.st === "Rejected") chartRejected++;
-
-      if (item.a === null) heat0++;
-      else if (item.a >= 90) heat90++;
-      else if (item.a >= 80) heat80++;
-      else if (item.a >= 70) heat70++;
-      else if (item.a >= 60) heat60++;
 
       // Evaluate logic matrices for matching elements
       var matchStatus = (fs === 'all' || item.st === fs);
@@ -1946,6 +1995,7 @@
             '<div class="apps-detail-item"><label>Company Platform Context</label><span>' + item.c + '</span></div>' +
             '<div class="apps-detail-item"><label>Accurate Logistical Vector</label><span>' + (item.l || "Confidential Protocol") + '</span></div>' +
             '<div class="apps-detail-item"><label>Term Cycle</label><span>' + item.s + '</span></div>' +
+            '<div class="apps-detail-item"><label>Date Applied</label><span>' + item.d + '</span></div>' +
             '<div class="apps-detail-item"><label>Routing Terminal</label><span>' + (item.u ? '<a href="' + item.u + '" target="_blank">Access Portal &rarr;</a>' : "Direct Workflow Channel") + '</span></div>' +
           '</div>' +
         '</div>';
@@ -1971,17 +2021,80 @@
     document.getElementById('apps-bar-offer').style.width = ((chartOffer / countTotal) * 100) + '%';
     document.getElementById('apps-bar-rejected').style.width = ((chartRejected / countTotal) * 100) + '%';
 
-    // Calculate maximum matrix dimensions
-    var maxHeat = Math.max(heat90, heat80, heat70, heat60, heat0) || 1;
-    document.getElementById('heat-90').style.opacity = 0.2 + (heat90 / maxHeat) * 0.8;
-    document.getElementById('heat-80').style.opacity = 0.2 + (heat80 / maxHeat) * 0.8;
-    document.getElementById('heat-70').style.opacity = 0.2 + (heat70 / maxHeat) * 0.8;
-    document.getElementById('heat-60').style.opacity = 0.2 + (heat60 / maxHeat) * 0.8;
-    document.getElementById('heat-0').style.opacity  = 0.2 + (heat0 / maxHeat) * 0.8;
+    
   }
 
   if (filterStatus) filterStatus.addEventListener('change', renderTracker);
   if (searchInput)  searchInput.addEventListener('input', renderTracker);
+
+  // ── Sorting controls ──
+  document.querySelectorAll('#jof-portfolio .apps-sortable').forEach(function(hd) {
+    hd.addEventListener('click', function() {
+      var k = hd.getAttribute('data-sort');
+      if (sortKey === k) { if (sortDir === 1) sortDir = -1; else sortKey = null; }
+      else { sortKey = k; sortDir = 1; }
+      renderTracker();
+    });
+  });
+  var sortSel = document.getElementById('apps-sort');
+  if (sortSel) sortSel.addEventListener('change', function() {
+    if (sortSel.value === 'default') { sortKey = null; }
+    else { var p = sortSel.value.split('-'); sortKey = p[0]; sortDir = p[1] === 'asc' ? 1 : -1; }
+    renderTracker();
+  });
+
+  // ── Hoverable status bar ──
+  var barColors = { Applied: '#8a8794', Interview: '#d4af37', Offer: '#4ade80', Rejected: '#ef4444' };
+  var statusOrder = ['Applied', 'Interview', 'Offer', 'Rejected'];
+  var barWrap = document.getElementById('apps-bar-wrap');
+  var legendEl = document.getElementById('apps-legend');
+  var insightEl = document.getElementById('apps-insight');
+  var defaultInsight = insightEl.innerHTML;
+
+  function statusStats(st) {
+    var rows = rawData.filter(function(r) { return r.st === st; });
+    var scored = rows.filter(function(r) { return r.a !== null; });
+    var avg = scored.length ? Math.round(scored.reduce(function(s, r) { return s + r.a; }, 0) / scored.length) : null;
+    var top = scored.slice().sort(function(a, b) { return b.a - a.a; })[0];
+    var latest = rows.slice().sort(function(a, b) { return dateVal(b.d) - dateVal(a.d); })[0];
+    return { n: rows.length, avg: avg, top: top, latest: latest };
+  }
+  function showInsight(st) {
+    var s = statusStats(st), total = rawData.length;
+    var pct = (s.n / total * 100).toFixed(1);
+    insightEl.innerHTML =
+      '<strong>' + stageLabels[st] + '</strong> &mdash; ' + s.n + ' of ' + total + ' applications (' + pct + '%)' +
+      '<div class="apps-insight-grid">' +
+        '<div><label>Average ATS Rating</label><span>' + (s.avg !== null ? s.avg + '/100' : 'No scores yet') + '</span></div>' +
+        '<div><label>Highest Rated Role</label><span>' + (s.top ? s.top.t + ' (' + s.top.a + ')' : 'N/A') + '</span></div>' +
+        '<div><label>Most Recent</label><span>' + (s.latest ? s.latest.d : 'N/A') + '</span></div>' +
+      '</div>';
+  }
+  function setHover(st) {
+    barWrap.classList.toggle('has-hover', !!st);
+    document.querySelectorAll('#jof-portfolio .apps-bar, #jof-portfolio .apps-legend-item').forEach(function(el) {
+      el.classList.toggle('hl', el.getAttribute('data-status') === st);
+    });
+    if (st) showInsight(st); else insightEl.innerHTML = defaultInsight;
+  }
+  statusOrder.forEach(function(st) {
+    var n = rawData.filter(function(r) { return r.st === st; }).length;
+    var item = document.createElement('span');
+    item.className = 'apps-legend-item';
+    item.setAttribute('data-status', st);
+    item.innerHTML = '<span class="apps-legend-dot" style="background:' + barColors[st] + '"></span>' + stageLabels[st] + ' (' + n + ')';
+    legendEl.appendChild(item);
+  });
+  document.querySelectorAll('#jof-portfolio .apps-bar, #jof-portfolio .apps-legend-item').forEach(function(el) {
+    var st = el.getAttribute('data-status');
+    el.addEventListener('mouseenter', function() { setHover(st); });
+    el.addEventListener('mouseleave', function() { setHover(null); });
+    el.addEventListener('click', function() {
+      filterStatus.value = (filterStatus.value === st) ? 'all' : st;
+      renderTracker();
+      setHover(st);
+    });
+  });
 
   // Initialize tracking array on interface thread load
   renderTracker();
